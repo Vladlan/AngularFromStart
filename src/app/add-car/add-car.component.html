@@ -1,0 +1,22 @@
+
+
+<!--<input type="text" placeholder="Your car" class="form-control" [(ngModel)]="carName">-->
+<input type="text" class="form-control" [(ngModel)]="carName" #carNameInput>
+<input type="text" placeholder="Your car year" class="form-control" #carYearInput [(ngModel)]="carYear">
+<button [disabled]="!canAddCar"
+        class="btn btn-primary"
+        (click)="addCar(carNameInput)"
+>
+  Add
+</button>
+
+<button
+        class="btn btn-danger"
+        (click)="deleteCar()"
+>
+  Delete
+</button>
+
+<p>{{addCarStatus}}</p>
+<p *ngIf="addCarStatus">Машина добавлена</p>
+<p *ngIf="!addCarStatus">Машина не добавлена</p>

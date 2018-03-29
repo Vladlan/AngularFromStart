@@ -1,0 +1,34 @@
+<app-add-car (onAddCar)="updateCarList($event)"
+             (onDeleteCar)="deleteCar($event)"
+></app-add-car>
+
+
+
+<hr>
+  <p *ngFor="let date of dates">
+    <!--//using pipe-->
+    {{ date | date:'medium' }}
+  </p>
+<!--<ul>-->
+  <!--<li *ngFor="let car of cars2; let n = index">-->
+    <!--<p [ngStyle]="{backgroundColor: (n+1) % 2 === 0 ? 'yellow' : 'silver'}">-->
+    <!--<b>{{n+1}}.  </b>-->
+        <!--{{car.name}}-->
+      <!--year: {{car.year}}-->
+    <!--</p>-->
+  <!--</li>-->
+<!--</ul>-->
+
+<app-car *ngFor="let car of cars2; let n = index" [n]="n" [car]="car">
+  <span #carHeading class="alert alert-danger">
+    Машина чётная
+  </span>
+</app-car>
+
+
+<!--<input type="text" class="form-control" (input)="onKeyUp($event)" >-->
+<input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">
+<hr>
+<input type="text" class="form-control" [(ngModel)]="inputText">
+<hr>
+<p>{{ inputText }}</p>

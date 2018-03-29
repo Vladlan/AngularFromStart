@@ -1,0 +1,12 @@
+<!--<p>-->
+ <!--Car: {{ carName }}, year: {{ carYear }}  {{getCarName()}}-->
+<!--</p>-->
+
+<p [ngStyle]="{backgroundColor: (n+1) % 2 === 0 ? 'yellow' : 'silver'}">
+  <b>{{n+1}}.  </b>
+  {{car.name}}
+  year: {{car.year}}
+<p *ngIf="n % 2">
+  <ng-content></ng-content>
+</p>
+
